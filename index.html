@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% block title %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="{{url_for('static',filename='script.js')}}"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>  <!--essential script for socket IO-->
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+<title>HTCS Chat</title>
+{% endblock %}
+
+{% block content %}
+<nav class='navbar justify-content-center'>
+        <h1 class='text-info'>HTCS Chat</h1>
+    </nav>
+    <div  class='row h-75 no-gutters border border-secondary' >
+        <div   class='col-9 bg-light border p-3 d-flex flex-column justify-content-end h-100' >
+            <div id='messages' >
+            </div>
+            <input id='messageInput' type='text' class="  form-control text-left " maxlength="80">
+        </div>
+        <div class='col-3  text-center'>
+            <h2 id='username' class='text-center bg-info m-1 rounded '></h2>
+            <h2 class='pl-1 pt-2'>Channels&nbsp; <kbd>+</kbd></h2>
+            <ul id='channelList' class="list-group text-center h-50 m-1 ">
+            </ul>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" >
+        <div class="modal-dialog">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h4 class="modal-title "></h4>
+                </div>
+                <div class="modal-body">
+                    <input id='modalInput' type='text' class="form-control w-10"  >
+                </div>
+                <div class="modal-footer">
+                    <button id='modalButton' type="button" class="btn btn-danger" data-dismiss="modal" disabled>Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
